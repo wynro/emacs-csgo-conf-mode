@@ -38,13 +38,13 @@
   "Font lock keywords for CS:GO Config Mode."
   )
 
-(defvar csgo-conf-mode-syntax-table nil "Syntax table for `csgo-conf-mode'.")
-(setq csgo-conf-mode-syntax-table
+(defvar csgo-conf-mode-syntax-table
   (let ((table (make-syntax-table)))
     (modify-syntax-entry ?_ "w" table)
     (modify-syntax-entry ?\/ ". 12b" table)
     (modify-syntax-entry ?\n "> b" table)
-    table))
+    table)
+  "Syntax table for `csgo-conf-mode'.")
 
 (defun csgo-conf-indent-line ()
   "Indent current line of CS:GO Configuration."
