@@ -5,7 +5,7 @@
 ;; Author: Guillermo Robles <guillerobles1995@gmail.com>
 ;; URL: https://github.com/wynro/emacs-csgo-conf-mode
 ;; Keywords: languages
-;; Version: 0.1
+;; Version: 1.0
 
 ;; This file is not part of GNU Emacs.
 
