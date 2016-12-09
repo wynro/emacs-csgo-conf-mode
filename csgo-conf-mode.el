@@ -55,32 +55,20 @@
   0)
 
 ;;;###autoload
-(defun csgo-conf-mode ()
+(define-derived-mode csgo-conf-mode conf-mode "Config[CS:GO]"
   "Major mode for editing CS:GO configuration files."
-  (interactive)
-  (set-syntax-table csgo-conf-mode-syntax-table)
 
-  ;; Define mode information
-  (setq major-mode 'csgo-conf-mode mode-name "Config[CS:GO]")
+  (setq font-lock-defaults  '(csgo-conf-font-lock-keywords nil t nil)
+	case-fold-search     t)
 
-  ;; Define syntax highliting function
-  (set (make-local-variable 'font-lock-defaults)
-       '(csgo-conf-font-lock-keywords nil t nil nil))
-
-  ;; Define outline level
-  (set (make-local-variable 'outline-level) 'csgo-conf-outline-level)
-
-  ;; Define indentation function (no indentation)
-  (set (make-local-variable 'indent-line-function) 'csgo-conf-indent-line)
-
-  ;; Define comment information
   (set (make-local-variable 'comment-start) "//")
   (set (make-local-variable 'comment-start-skip)
        (concat (regexp-quote comment-start) "+\\s *"))
+  (set (make-local-variable 'comment-end) "")
 
-  ;; Run hooks
-  (run-mode-hooks 'csgo-conf-mode-hook)
-  )
+  (set (make-local-variable 'indent-line-function)
+       'csgo-conf-indent-line)
+)
 
 (provide 'csgo-conf-mode)
 ;;; csgo-conf-mode.el ends here
